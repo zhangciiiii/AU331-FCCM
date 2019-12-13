@@ -41,7 +41,7 @@ def main():
                 CT_DCM_list = sorted(CT_DCM_list, key=embedded_numbers)
                 for i,CT_DCM in enumerate(CT_DCM_list):
                     data = pydicom.read_file(Path(args.dataset_dir)/one_patient/find_study/tmp_list[0]/CT_DCM) 
-                    data = data.pixel_array
+                    data = data.pixel_array # [121:512-103,:]
                     scipy.misc.imsave(Out_dir/ str(i).zfill(4)+'.jpg',data)  #
 
                 
